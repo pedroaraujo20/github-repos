@@ -14,8 +14,13 @@ export default createGlobalStyle`
   }
 
   body, input, button {
-    font-family: 'Roboto', serif;
-    font-size: 16px;
+    font: 16px Roboto, sans-serif;
+  }
+
+  #root {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px 20px;
   }
 
   h1, h2, h3, h4, strong {
