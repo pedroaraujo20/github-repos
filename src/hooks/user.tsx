@@ -14,9 +14,10 @@ export interface Repositories {
   id: number;
   name: string;
   description: string | null;
-  url: string;
+  html_url: string;
   stargazers_count: number;
   language: string;
+  forks: number;
 }
 
 interface UserContextData {
