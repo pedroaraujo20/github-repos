@@ -11,7 +11,7 @@ interface ListItemProps {
 }
 
 const ListItem = ({ id, title, subtitle, stargazers }: ListItemProps) => (
-  <Item to={`/repository?id=${id}`}>
+  <Item to={`/repository/${id}`}>
     <div>
       <TitleContainer>
         <strong>{title}</strong>
