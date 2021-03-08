@@ -13,7 +13,10 @@ interface RepositoryParams {
 }
 
 const Repository = () => {
-  const { userInfo, repositories } = useContext(UserContext);
+  const {
+    userInfo: { avatar_url, name },
+    repositories,
+  } = useContext(UserContext);
 
   const { params } = useRouteMatch<RepositoryParams>();
 
@@ -32,7 +35,7 @@ const Repository = () => {
         <>
           <RepositoryInfo>
             <header>
-              <img src={userInfo.avatar_url} alt={userInfo.name} />
+              <img src={avatar_url} alt={name} />
               <div>
                 <strong>{repository.name}</strong>
                 <p>{repository.description}</p>
