@@ -1,7 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useMemo, useState } from 'react';
 import Loading from 'react-loader-spinner';
 
 import { FiSearch } from 'react-icons/fi';
+
 import { UserContext } from '../../hooks/user';
 
 import Button from '../../components/Button';
@@ -23,7 +24,16 @@ const Dashboard = () => {
 
   const [user, setUser] = useState('');
 
-  const shouldShowUserInfo = !!userInfo.name && !isLoading && !errorMessage;
+  const shouldShowUserData = useMemo(
+    () => !!userInfo.name && !isLoading && !errorMessage,
+    [userInfo.name, isLoading, errorMessage],
+  );
+
+  const orderedRepositories = repositories.sort((a, b) => {
+    if (a.stargazers_count < b.stargazers_count) return 1;
+    if (a.stargazers_count > b.stargazers_count) return -1;
+    return 0;
+  });
 
   return (
     <>
@@ -43,11 +53,11 @@ const Dashboard = () => {
         {isLoading && (
           <Loading type="ThreeDots" height={60} width={60} color="#04d361" />
         )}
-        {shouldShowUserInfo && (
+        {shouldShowUserData && (
           <>
             <UserInfo {...userInfo} />
             <Repositories>
-              {repositories.map(
+              {orderedRepositories.map(
                 ({ id, name, description, stargazers_count }) => (
                   <ListItem
                     key={id}
