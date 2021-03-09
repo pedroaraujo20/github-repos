@@ -10,5 +10,9 @@ export const StyledInput = styled.input`
 
   &::placeholder {
     color: #a8a8b3;
+
+    @media (max-width: 360px) {
+      font-size: 12px;
+    }
   }
 `;

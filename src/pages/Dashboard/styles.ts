@@ -6,6 +6,10 @@ export const Title = styled.h1`
   line-height: 56px;
   max-width: 450px;
   margin-top: 80px;
+
+  @media (max-width: 360px) {
+    font-size: 36px;
+  }
 `;
 
 export const Form = styled.form`

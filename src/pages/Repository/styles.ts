@@ -30,6 +30,11 @@ export const RepositoryInfo = styled.section`
       width: 120px;
       height: 120px;
       border-radius: 50%;
+
+      @media (max-width: 360px) {
+        width: 75px;
+        height: 75px;
+      }
     }
 
     div {
@@ -38,6 +43,10 @@ export const RepositoryInfo = styled.section`
       strong {
         font-size: 30px;
         color: #3d3d4d;
+
+        @media (max-width: 360px) {
+          font-size: 26px;
+        }
       }
 
       p {
@@ -60,7 +69,7 @@ export const RepositoryInfo = styled.section`
 
       strong {
         display: block;
-        font-size: 25px;
+        font-size: 24px;
 
         color: #3d3d4d;
       }
